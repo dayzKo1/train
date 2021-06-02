@@ -14,3 +14,4 @@ $ git push -u origin master
 //git checkout -b 分支名
 //git merge 分支名
 //ls
+//git pull --rebase origin master  
