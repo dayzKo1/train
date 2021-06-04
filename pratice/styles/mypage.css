@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+}
+#myhead{
+    width: 1200px;
+    margin: 0 auto;
+}
+#mybody{
+    margin: 0;
+    width: 1200px;
+}
+#headleft{
+    color: #fff;
+    margin-left: 10%;
+}
+#headright{
+    color: #fff;
+    float:right;
+    margin-right: 10%;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+.header{
+    width: 200px;
+    border: solid 1px red;
+    float: left;
+    margin-left: 60px;
+    margin-right: 30px;
+}
+.header h3{
+    text-align: center;
+}
+/* .pic img{
+    width: 100%;
+} */
+#favoritemovies,#favoritebooks{
+    text-align: center;
+}
+#mycopy{
+    background-color: royalblue;
+    width: 1200px;
+    color: #fff;
+    text-align: center;
+} 
+img{
+    width: 150px;
+    height: 150px;
+}
