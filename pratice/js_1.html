@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <span id='demo1'>JavaScript</span>
+    <script>
+        var el1 = document.getElementById('demo1');
+        el1.innerHTML = "javaScript1"
+    </script>
+
+    <span class='demo2'>JavaScript</span>
+    <script>
+        var el2 = document.querySelector('.demo2')
+        el2.innerHTML = "javaScript2"
+    </script>
+
+    <img id="myimage" src='https://www.runoob.com/images/pic_bulboff.gif' alt="" onclick="changeimg()">
+    <script>
+        function changeimg() {
+            var x = document.getElementById('myimage');
+            if (x.src.match('https://www.runoob.com/images/pic_bulboff.gif')) {
+                x.src = 'https://www.runoob.com/images/pic_bulbon.gif'
+            }
+            else {
+                x.src = 'https://www.runoob.com/images/pic_bulboff.gif'
+            }
+        }
+    </script>
+
+    <script>
+        $(document).ready(function (){
+            $('#demo1').click(
+                function () {
+                    alert('123')
+                }
+            );
+        }
+        );
+    </script>
+
+    <input type="text">
+    <span class='typein'>输入框</span>
+    <script>
+        $(function () {
+            $('input').change(function(){
+                $(.typein).text($('input').val());
+            })
+        })
+    </script>
+
+    <h1>计数器</h1>
+    <button onclick="minus();">-</button>
+    <span id='counter'>10</span>
+    <button onclick="plus();">+</button>
+    <script>
+        function minus() {
+            var el = document.querySelector('#counter');
+            if (el.innerHTML > 0) {
+                el.innerHTML--;
+            }
+        }
+        function plus() {
+            var el = document.querySelector('#counter');
+            el.innerHTML++;
+        }
+    </script>
+
+</body>
+
+</html>
