@@ -1,34 +1,70 @@
- //设置“发送”按钮点击事件，将弹幕体显示在弹幕墙上
 $(function () {
+  var a = false;
+  //发射弹幕
   $('.send').click(function () {
-    //获取文本输入框的内容
     var val = $('.content').val();
-    //将文本框的内容赋值给val后，将文本框的内容清除，以便用户下一次输入
-    //$('.content').val('');
-    //将文本框内容用div包裹起来，便于后续处理
-    var $content = $('<div class="text">' + val + '</div>');
-    //获取弹幕墙对象
+    var $content = $('<div id ="p1" class="text">' + val + '</div>');
     $screen = $(document.getElementById("screen"));
-    //设置弹幕体出现时的上边距，为任意值
-    var top = Math.random() * $screen.height() + 40;
-    //设置弹幕体的上边距和左边距
+    var top = Math.random() * $screen.height();
+    var rdfontSize = Math.floor(Math.random() * 40 + 12); + 'px';
+    var rdcolor = '#' + Math.floor(Math.random() * 0xffffff).toString(16);
+
     $content.css({
       top: top + "px",
-      right: 80
-      
+      right: 0,
+      fontSize: rdfontSize,
+      color: rdcolor
     });
-    //将弹幕体添加到弹幕墙中
+    if (a) {
+      $content.css({
+        opacity: 0.2
+      })
+    }
     $('.dm_show').append($content);
-    //弹幕体从右到左，时间随机，到达删除
+
     $content.animate({
-      right: $screen.width() + 80 - $content.width()
-    }, Math.random()*10000, function () {
+      right: $screen.width() - $content.width() + 80
+    }, Math.random() * 10000, function () {
       $(this).remove();
     });
-  });
 
-  //设置“清屏”点击事件，清除弹幕墙中的所有内容
+
+
+  });
+  // 透明度
+  $('.opacity').click(function () {
+    a = !a;
+    if (a) {
+      $('.text').css({
+        opacity: 0.2
+      })
+    }
+    else {
+      $('.text').css({
+        opacity: 1
+      })
+    }
+  })
+
+  // 清空
   $('.clear').click(function () {
     $('.dm_show').empty();
   });
+  
+  //回车
+  $('.content').keyup(function (e) {
+    console.log(e.keyCode)
+    if (e.keyCode == 13) {
+      $('.send').click();
+    }
+
+
+  })
+
+
+
 });
+// $(selector).animate({params},speed,callback);
+// 必需的 params 参数定义形成动画的 CSS 属性。
+// 可选的 speed 参数规定效果的时长。它可以取以下值："slow"、"fast" 或毫秒。
+// 可选的 callback 参数是动画完成后所执行的函数名称

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <style>
+        .danger {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>add & del</h2>
+    <div id="message"> </div>
+    <ul id="good">
+        <li>apple</li>
+    </ul>
+    <button id="deleteAll">deleteAll</button>
+    <div>
+        <span>名称</span>
+        <input type="text" id="inputMsg">
+        <button id="add">add</button>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#add").click(function () {
+                var inputMsg = $('#inputMsg').val()
+                $("#good").append('<li>' + inputMsg + '</li>')
+                $("#message").html('add：' + inputMsg)
+                $("#message").removeClass("danger");
+                $("#good li").click(function () {
+                $("#message").html("del：" + $(this).text())
+                $("#message").addClass("danger")
+                $(this).remove();
+                })
+            })
+            $("#good li").click(function () {
+                $(this).remove();
+                $("#message").html("del：" + $(this).text())
+                $("#message").addClass("danger")
+            })
+            $("#deleteAll").click(function () {
+                $("#good li").remove();
+                $("#message").html("delAll succeed")
+                $("#message").addClass("danger")
+            })
+        })
+    </script>
+</body>
+
+</html>

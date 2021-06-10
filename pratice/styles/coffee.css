@@ -18,6 +18,7 @@ span{
 }
 
 #mylist{
+    position: active;
     float: left;
     width: 30%;
     background-color: #BCF;

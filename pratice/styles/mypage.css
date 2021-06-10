@@ -7,11 +7,9 @@
 #part2{
     background-color:#CCFF99;
 }
-
 #part3{
      background-color:#333333;
 }
-
 #myhead{
     width: 1200px;
     margin: 0 auto;
@@ -28,13 +26,11 @@
     margin: 0 auto;
     width: 1200px;
     text-align: center;
- 
 }
 .body 
 {
     display: flex; 
     justify-content: space-around;
-
 }
 #headleft{
     color: #fff;
@@ -70,25 +66,21 @@ a{
     text-align: center;
     
 }
-
 img{
-    width: 200x;
-    height: 300px;
+    width:230px;
+    height: 330px;
 }
-
 .line{
     width: 100px;
     margin: 10px auto;
     background-color: black;    
     height: 5px
 }
-
 #mycopy{
     margin: 0 auto;
     width: 1200px;
     text-align: center;
 } 
-
 #mycopy p{
     float: left;
     margin-top: 80px;
