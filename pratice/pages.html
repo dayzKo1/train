@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=s, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<style>
+    h1 {
+        text-align: center;
+    }
+</style>
+
+<body>
+
+    <h1>商品列表</h1>
+    <div class="row">品名 价格 日期</div>
+
+    <div id="good">
+    </div>
+    <hr>
+    <button id="page1">1</button>
+    <button id="page2">2</button>
+    <button id="page3">3</button>
+    <button id="page4">4</button>
+    <button id="page5">5</button>
+    <div class="overlay"></div>
+    <div class="showbox"></div>
+    <script>
+        
+        $(document).ready(function () {
+            axios.get('https://www.fastmock.site/mock/a17d9c875604a41e65a5354eb8b90462/test/test/interface1?page=1').then(function (res) {
+                console.log(res.data.data)
+                for (let i = 0; i < res.data.data.product.length; i++) {
+                    $('#good').append(`<hr> ${res.data.data.product[i].name} ${res.data.data.product[i].price} ${res.data.data.product[i].time} <br>`);
+                }
+            })
+        })
+
+        $("#page1").click(function () {
+            $("#good").empty();
+            axios.get('https://www.fastmock.site/mock/a17d9c875604a41e65a5354eb8b90462/test/test/interface1?page=1').then(function (res) {
+                console.log(res.data.data)
+                for (let i = 0; i < res.data.data.product.length; i++) {
+                    $('#good').append(`<hr>${res.data.data.product[i].name} ${res.data.data.product[i].price}${res.data.data.product[i].time}<br>`);
+                }
+            })
+
+        })
+        $("#page2").click(function () {
+            $("#good").empty();
+            axios.get('https://www.fastmock.site/mock/a17d9c875604a41e65a5354eb8b90462/test/test/interface1?page=2').then(function (res) {
+                console.log(res.data.data)
+                for (let i = 0; i < res.data.data.product.length; i++) {
+                    $('#good').append(`<hr>${res.data.data.product[i].name} ${res.data.data.product[i].price}${res.data.data.product[i].time}<br>`);
+                }
+            })
+        })
+        $("#page3").click(function () {
+            $("#good").empty();
+            axios.get('https://www.fastmock.site/mock/a17d9c875604a41e65a5354eb8b90462/test/test/interface1?page=3').then(function (res) {
+                console.log(res.data.data)
+                for (let i = 0; i < res.data.data.product.length; i++) {
+                    $('#good').append(`<hr>${res.data.data.product[i].name} ${res.data.data.product[i].price}${res.data.data.product[i].time}<br>`);
+                }
+            })
+        })
+        $("#page4").click(function () {
+            $("#good").empty();
+            axios.get('https://www.fastmock.site/mock/a17d9c875604a41e65a5354eb8b90462/test/test/interface1?page=4').then(function (res) {
+                console.log(res.data.data)
+                for (let i = 0; i < res.data.data.product.length; i++) {
+                    $('#good').append(`<hr>${res.data.data.product[i].name} ${res.data.data.product[i].price}${res.data.data.product[i].time}<br>`);
+                }
+            })
+        })
+        $("#page5").click(function () {
+            $("#good").empty();
+            axios.get('https://www.fastmock.site/mock/a17d9c875604a41e65a5354eb8b90462/test/test/interface1?page=5').then(function (res) {
+                console.log(res.data.data)
+                for (let i = 0; i < res.data.data.product.length; i++) {
+                    $('#good').append(`<hr>${res.data.data.product[i].name} ${res.data.data.product[i].price}${res.data.data.product[i].time}<br>`);
+                }
+            })
+        })
+
+          //----判断当前页面是否加载状态 开始 ----
+
+        document.onreadystatechange = subSomething;//当页面加载状态改变的时候执行这个方法. 
+        function subSomething() {
+            if (document.readyState != 'complete') //当页面加载状态 
+            {
+                //----显示遮罩 开始----
+                $(".overlay").css({ 'display': 'block', 'opacity': '0.8' });
+                $(".showbox").stop(true).animate({ 'margin-top': '300px', 'opacity': '1' }, 200);
+                //----显示遮罩 结束----
+            }
+        }
+
+        //----判断当前页面是否加载状态 结束 ----
+
+
+    </script>
+</body>
+
+</html>

@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <style>
         .danger {
             color: red;
@@ -18,7 +19,7 @@
     <h2>add & del</h2>
     <div id="message"> </div>
     <ul id="good">
-        <li>apple</li>
+
     </ul>
     <button id="deleteAll">deleteAll</button>
     <div>
@@ -28,6 +29,13 @@
     </div>
 
     <script>
+        axios.get('https://www.fastmock.site/mock/a17d9c875604a41e65a5354eb8b90462/test/test/interface1?page=1').then(function (res) {
+                console.log(res.data.data.product);
+            for (let i = 0; i < res.data.data.product.length; i++) {
+                console.log(res.data.data.product[i]);
+                $('#good').append(`<li>${res.data.data.product[i].name} ${res.data.data.product[i].price}</li>`);
+            }
+        })
         $(document).ready(function () {
             $("#add").click(function () {
                 var inputMsg = $('#inputMsg').val()
@@ -35,9 +43,9 @@
                 $("#message").html('add：' + inputMsg)
                 $("#message").removeClass("danger");
                 $("#good li").click(function () {
-                $("#message").html("del：" + $(this).text())
-                $("#message").addClass("danger")
-                $(this).remove();
+                    $("#message").html("del：" + $(this).text())
+                    $("#message").addClass("danger")
+                    $(this).remove();
                 })
             })
             $("#good li").click(function () {
@@ -53,5 +61,4 @@
         })
     </script>
 </body>
-
 </html>

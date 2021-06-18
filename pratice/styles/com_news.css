@@ -1,0 +1,102 @@
+*{
+    margin: 0;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+hr{
+    width: 250px;
+    margin: 0 auto;
+}
+h1{
+    text-align: center;
+    padding: 15px;
+}
+#aboutus{
+padding-bottom: 30px;
+}
+p{
+    font-size: 11px;
+}
+#part1{
+    background-color: #003399;
+}
+#part2{
+    background-color:#CCFF99;
+}
+#part3{
+     background-color:#333333;
+}
+
+#part3 h3{
+    font-size: 13px;
+    color: whitesmoke;
+}
+#part3 img{
+    width: 130px;
+    height: 130px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#myhead{
+    width: 1200px;
+    margin: 0 auto;
+    vertical-align: middle;
+    height: 35px;
+    font-family: 'Lucida Sans';
+}
+#mylogo{
+    width: 25px;
+    height: 25px;
+    vertical-align: middle; 
+}
+#headleft{
+    color:whitesmoke;
+    margin-left: 10%;
+    font-size: 22px;
+}
+#headright{
+    color:whitesmoke;
+    float:right;
+    margin-right: 10%;
+    font-size: 22px;
+}
+.banner{
+    margin: 0 auto;
+    vertical-align: middle;
+}
+.header{
+    text-align: center;
+    border:0px;
+}
+.mybody{
+    margin: 0 auto;
+    width: 1200px;
+}
+.body 
+{
+    display: flex; 
+    justify-content: space-between;
+    vertical-align: middle;
+}
+#copy{
+    text-align: center;
+    color: white;
+    font-size: 22px;
+}
+img{
+    height: 300px;
+    width: 200px;
+}
+#news{
+    margin-top: 10px;
+    padding: 20px;
+}
+#news img{
+    height: 240px;
+    width: 180px;
+}
+#news h3{
+    color:#3a411e;
+}

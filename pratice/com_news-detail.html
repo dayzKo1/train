@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles\com_news-detail.css">
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <div id="part1">
+        <div id="myhead">
+            <span id="headleft">
+                <img id="mylogo" src="../pics/longmao.png" alt="logo">吉卜力工作室
+            </span>
+            <span id="headright">
+                <a href="com_index.html">首页</a>
+                <a href="com_news.html">新闻</a>
+                <a href="com_about.html">关于我们</a>
+            </span>
+        </div>
+    </div>
+    
+    <div id="part2">
+        <div class="mybody">
+            <div id="titleAndTime">
+
+                <!-- <h1>千与千寻</h1>
+                <h5>20210617</h5> -->
+    
+            </div>
+            <div id="news-detail" class="body">
+
+                <!-- <img src="../pics/news1.jpg" alt="">
+                <div>
+                    <p>
+                        10岁的少女千寻与父母一起从都市搬家到了乡下。没想到在搬家的途中，一家人发生了意外。他们进入了汤屋老板魔女控制的奇特世界——在那里不劳动的人将会被变成动物。千寻的爸爸妈妈因贪吃变成了猪，千寻为了救爸爸妈妈经历了很多磨难，在期间她遇见了白龙，一个既聪明又冷酷的少年，在经历了很多事情之后，千寻最后救出了爸爸妈妈，拯救了白龙。",
+                    </p>
+                </div> -->
+
+            </div>
+        </div>
+    </div>
+
+
+    <div id="part3">
+
+        <div class="mybody">
+
+            <div class="body">
+                <div class="header">
+                    <div class="pic"><img src="../pics/location.png" alt=""></div>
+                    <h3>Studio Ghibli 1-4-25, <br>
+                        Kajino-cho Koganei-shi, <br>
+                        184 Japan
+                        </h>
+                </div>
+                <div class="header">
+                    <div class="pic"><img src="../pics/twiter.png" alt=""></div>
+                    <h3>Twitter:JP_GHIBLI</h>
+                </div>
+                <div class="header">
+                    <div class="pic"><img src="../pics/line.png" alt=""></div>
+                    <h3>Line:studioghibli</h>
+                </div>
+                <div class="header">
+                    <div class="pic"><img src="../pics/erweima.png" alt=""></div>
+                    <h3>For more information</h>
+                </div>
+            </div>
+        </div>
+
+        <div id="copy">
+            <hr>版权所有&copy;dayzKo1
+        </div>
+
+    </div>
+
+    <script>
+
+        var id = window.location.search.split('=')[1];
+        url ='https://www.fastmock.site/mock/a17d9c875604a41e65a5354eb8b90462/test/news?id='+id;
+        $(document).ready(function () {
+            axios.get(url).then(function (res) {
+                $('#news-detail').append(`
+                   <img src="${res.data.data.news.picture}" alt=""></div>
+                   <div>
+                    <p>${res.data.data.news.content}</p>
+                    </div>
+                    `);
+
+                $('#titleAndTime').append(`
+                    <h1>${res.data.data.news.title}</h1>
+                    <h5>${res.data.data.news.date}</h5>
+                    `);
+        })
+        })
+
+
+
+    </script>
+
+</body>
+
+</html>
