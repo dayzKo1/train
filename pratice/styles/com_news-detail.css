@@ -29,12 +29,13 @@ p{
     font-size: 13px;
     color: whitesmoke;
 }
+
 #part3 img{
     width: 70px;
     height: 70px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+
 }
+
 #myhead{
     width: 1200px;
     margin: 0 auto;
@@ -58,15 +59,39 @@ p{
     margin-right: 10%;
     font-size: 22px;
 }
-.body 
-{
-    display: flex; 
-    justify-content: space-around; 
+.banner{
+    margin: 0 auto;
+    vertical-align: middle;
+}
+.header{
+    text-align: center;
+    border:0px;
+}
+.header h3{
+    text-align: center;
+    color: cornsilk;
 }
 .mybody{
     margin: 0 auto;
     width: 1200px;
 }
+
+.body 
+{
+    display: flex; 
+    justify-content: space-around;
+}
+#copy{
+    text-align: center;
+    color: white;
+    font-size: 22px;
+}
+
+#header img{
+    height: 150px;
+    width: 150px;
+}
+
 .body img
 {
 width: 400px;
@@ -77,12 +102,3 @@ padding: 20px;
     font-size: 20px;
     padding: 20px;
 }
-
-#copy{
-    text-align: center;
-    color: white;
-    font-size: 22px;
-}
-
-
-
