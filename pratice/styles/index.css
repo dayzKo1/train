@@ -39,6 +39,11 @@
     font-size: 22px;
 }
 #headright{
+    color: #fff;
+    float:right;
+    margin-right: 10%;
+    font-family: 'Lucida Sans';
+    font-size: 22px;
 }
 a{
     text-decoration: none;
