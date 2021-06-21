@@ -15,3 +15,6 @@ $ git push -u origin master
 //git merge 分支名
 //ls
 //git pull --rebase origin master  
+git add --all
+git commit -m'20210621'
+git push -u origin master;
