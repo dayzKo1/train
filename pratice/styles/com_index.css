@@ -51,13 +51,11 @@ p{
 }
 #headleft{
     color:whitesmoke;
-    margin-left: 10%;
     font-size: 22px;
 }
 #headright{
     color:whitesmoke;
     float:right;
-    margin-right: 10%;
     font-size: 22px;
 }
 .banner{

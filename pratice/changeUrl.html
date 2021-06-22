@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        
+        function changeURLPar(destiny, par, par_value) {
+            var pattern = par + '=([^&]*)';
+            var replaceText = par + '=' + par_value;
+            if (destiny.match(pattern)) {
+                var tmp = '/\\' + par + '=[^&]*/';
+                tmp = destiny.replace(eval(tmp), replaceText);
+                return (tmp);
+            }
+            else {
+                if (destiny.match('[\?]')) {
+                    return destiny + '&' + replaceText;
+                }
+                else {
+                    return destiny + '?' + replaceText;
+                }
+            }
+            return destiny + '\n' + par + '\n' + par_value;
+        }
+
+        window.location.href = changeURLPar(window.location.href,'page','02');
+        
+        alert(window.location.href);
+
+    </script>
+</body>
+
+</html>

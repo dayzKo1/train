@@ -38,16 +38,14 @@
                 </div>
             </div>
             <div style="text-align: center;padding: 20px;">
-                <button class ="page" id ="page1" value="01">1</button>
-                <button class ="page" id ="page2" value="02">2</button>
-                <button class ="page" id ="page3" value="03">3</button>
-                <button class ="page" id ="page4" value="04">4</button>
-                <button class ="page" id ="page5" value="05">5</button>
+                <button class="page" id="page01" value="01">1</button>
+                <button class="page" id="page02" value="02">2</button>
+                <button class="page" id="page03" value="03">3</button>
+                <button class="page" id="page04" value="04">4</button>
+                <button class="page" id="page05" value="05">5</button>
             </div>
         </div>
-
     </div>
-
 
     <div id="part3">
 
@@ -76,10 +74,10 @@
             </div>
         </div>
 
-    
 
 
-      
+
+
 
         <div id="copy">
             <hr>版权所有&copy;dayzKo1
@@ -88,10 +86,11 @@
     </div>
 
     <script>
+
         $(document).ready(function () {
-            axios.get('https://www.fastmock.site/mock/a17d9c875604a41e65a5354eb8b90462/test/news?page=01').then(function (res) {
-                console.log(res.data.data);
-                for (let i = 0; i < res.data.data.news.length; i++) {            
+            page = window.location.search.split('=')[1] || '01';
+            axios.get('https://www.fastmock.site/mock/a17d9c875604a41e65a5354eb8b90462/test/news?page=' + page).then(function (res) {
+                for (let i = 0; i < res.data.data.news.length; i++) {
                     $('#news').append(`
                     <div class="header">
                             <div class="pic"><img src="${res.data.data.news[i].picture}" alt=""></div>
@@ -100,16 +99,18 @@
                                <p>  ${res.data.data.news[i].introduction}</p>
                         </div>
                     `);
-
                 }
             })
+            changeColor(page);
         })
         $(".page").click(function () {
+       
             $("#news").empty();
             var pages = this.value;
-            url='https://www.fastmock.site/mock/a17d9c875604a41e65a5354eb8b90462/test/news?page='+pages;
+            window.location.href = changeURLPar(window.location.href, 'page', pages);
+            url = 'https://www.fastmock.site/mock/a17d9c875604a41e65a5354eb8b90462/test/news?page=' + pages;
             axios.get(url).then(function (res) {
-                for (let i = 0; i < res.data.data.news.length; i++) {            
+                for (let i = 0; i < res.data.data.news.length; i++) {
                     $('#news').append(`
                     <div class="header">
                             <div class="pic"><img src="${res.data.data.news[i].picture}" alt=""></div>
@@ -121,6 +122,27 @@
                 }
             })
         })
+        function changeURLPar(destiny, par, par_value) {
+            var pattern = par + '=([^&]*)';
+            var replaceText = par + '=' + par_value;
+            if (destiny.match(pattern)) {
+                var tmp = '/\\' + par + '=[^&]*/';
+                tmp = destiny.replace(eval(tmp), replaceText);
+                return (tmp);
+            }
+            else {
+                if (destiny.match('[\?]')) {
+                    return destiny + '&' + replaceText;
+                }
+                else {
+                    return destiny + '?' + replaceText;
+                }
+            }
+            return destiny + '\n' + par + '\n' + par_value;
+        }
+        function changeColor(clicked) {
+            $("#page"+clicked).addClass('active');
+        }
     </script>
 </body>
 

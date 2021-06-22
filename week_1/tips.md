@@ -17,4 +17,4 @@ $ git push -u origin master
 //git pull --rebase origin master  
 git add --all
 git commit -m'20210621'
-git push -u origin master;
+git push -u origin master

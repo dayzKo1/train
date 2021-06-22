@@ -53,13 +53,11 @@ p{
 }
 #headleft{
     color:whitesmoke;
-    margin-left: 10%;
     font-size: 22px;
 }
 #headright{
     color:whitesmoke;
     float:right;
-    margin-right: 10%;
     font-size: 22px;
 }
 .banner{
@@ -99,4 +97,14 @@ img{
 }
 #news h3{
     color:#3a411e;
+}
+.header:hover{
+    opacity: 0.6;
+    border: 1px solid red;
+}
+/* .page:active{
+    background-color: red;
+} */
+.active{
+    background-color: red;
 }

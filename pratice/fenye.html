@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+
+            <li onclick="pre()" class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+
+            <li onclick="getUrl(1)" class="page-item"><a class="page-link" href="#">1</a></li>
+            <li onclick="getUrl(2)" class="page-item"><a class="page-link" href="#">2</a></li>
+            <li onclick="getUrl(3)" class="page-item"><a class="page-link" href="#">3</a></li>
+            <li onclick="next()" class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <script>
+        let current = Number(window.location.href.split("?page=")[1]) || 1;
+        function pre() {
+            if (current > 1) {
+                getUrl(current - 1);
+            }
+        }
+        function next() {
+            if (current < 3) {
+                getUrl(current + 1);
+            }
+        }
+        function getUrl(page){
+            window.location.href =`?page=${page}`
+        }
+        page(current);
+        function page(page) {
+            current = page;
+            $('.list').empty;
+            axios.get(`https://www.fastmock.site/mock/a17d9c875604a41e65a5354eb8b90462/test/news?page=${page}`).then(function (res) {
+                for (let i = 0; i < res.data.data.news.length; i++) {
+                    let li = $('<li></li>');
+                    li.append(`<img src=${res.data.data.news[i].picture}>`);
+                    li.append(``);
+                    li.attr('id',${res.data.data.news[i].id});
+                    $('.list').append(li);
+                }
+                $('.list li').click(function () {
+                    window.location.href = `com_news-detail.html?id=${$(this).attr('id')}`
+                })
+
+            })
+
+        }
+
+    </script>
+</body>
+
+</html>
