@@ -92,11 +92,11 @@
             axios.get('https://www.fastmock.site/mock/a17d9c875604a41e65a5354eb8b90462/test/news?page=' + page).then(function (res) {
                 for (let i = 0; i < res.data.data.news.length; i++) {
                     $('#news').append(`
-                    <div class="header">
+                    <div class="header" onClick="goToDetail(${res.data.data.news[i].id})">
                             <div class="pic"><img src="${res.data.data.news[i].picture}" alt=""></div>
-                            <a class = "detail" href="com_news-detail.html?id=${res.data.data.news[i].id}">${res.data.data.news[i].title}</a>
+                            ${res.data.data.news[i].title}
                                <h5>${res.data.data.news[i].date}</h5>
-                               <p>  ${res.data.data.news[i].introduction}</p>
+                               <p> ${res.data.data.news[i].introduction}</p>
                         </div>
                     `);
                 }
@@ -104,7 +104,7 @@
             changeColor(page);
         })
         $(".page").click(function () {
-       
+
             $("#news").empty();
             var pages = this.value;
             window.location.href = changeURLPar(window.location.href, 'page', pages);
@@ -112,9 +112,9 @@
             axios.get(url).then(function (res) {
                 for (let i = 0; i < res.data.data.news.length; i++) {
                     $('#news').append(`
-                    <div class="header">
+                    <div class="header" onClick="goToDetail(${res.data.data.news[i].id})">
                             <div class="pic"><img src="${res.data.data.news[i].picture}" alt=""></div>
-                            <a class = "detail" href="com_news-detail.html?id=${res.data.data.news[i].id}">${res.data.data.news[i].title}</a>
+                            ${res.data.data.news[i].title}
                                <h5>${res.data.data.news[i].date}</h5>
                                <p> ${res.data.data.news[i].introduction}</p>
                         </div>
@@ -141,7 +141,13 @@
             return destiny + '\n' + par + '\n' + par_value;
         }
         function changeColor(clicked) {
-            $("#page"+clicked).addClass('active');
+            $("#page" + clicked).addClass('active');
+        }
+        function goToDetail(id) {
+            if(id<10){
+                id="0"+id;
+            }
+            window.location.href = "com_news-detail.html?id="+id;
         }
     </script>
 </body>
