@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="lib/css/bootstrap.css">
+    <title>企业站</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <script src="js/jquery-3.6.0.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="lib/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="css/com_news.css">
+</head>
+<body>
+
+    <!--------------头部-begin-------------->
+    <header id="lhh_header">
+        <!--导航-->
+        <nav class="navbar navbar-expand-lg navbar-light navbar-lhh">
+            <div class="container">
+                <a class="navbar-brand d-flex justify-content-center align-items-center" href="#">
+                    <img src="images/longmao.png" alt="">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#lhh_nav"
+                    aria-controls="lhh_nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="lhh_nav">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="com_index.html">首页</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="com_news.html">新闻</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="com_about.html">关于我们</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!--------------头部-end---------------->
+
+
+    <!--------------新闻动态-begin-------------->
+    <section id="lhh_news">
+        <!--标题-->
+        <div class="text-center mt-3 mb-3">
+            <h2><strong>新闻动态</strong></h2>
+        </div>
+        <hr>
+        <!--内容-->
+        <div class="container">
+            <div id="news" class="row">
+                <!--新闻-->
+
+                <!--新闻-->
+            </div>
+            <div style="text-align: center;padding: 20px;">
+                <button class="page" id="page01" value="01">1</button>
+                <button class="page" id="page02" value="02">2</button>
+                <button class="page" id="page03" value="03">3</button>
+                <button class="page" id="page04" value="04">4</button>
+                <button class="page" id="page05" value="05">5</button>
+            </div>
+        </div>
+    </section>
+
+    <!--------------新闻动态-end---------------->
+
+
+    <!--------------底部-begin-------------->
+    <footer id="lhh_footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-lg-3">
+                    <div class="header">
+                        <div class="pic"><img src="../pics/location.png" alt=""></div>
+                        <h3>Studio Ghibli 1-4-25, <br>
+                            Kajino-cho Koganei-shi, <br>
+                            184 Japan</h>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="header">
+                        <div class="pic"><img src="../pics/twiter.png" alt=""></div>
+                        <h3>Twitter:JP_GHIBLI</h>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="header">
+                        <div class="pic"><img src="../pics/line.png" alt=""></div>
+                        <h3>Line:studioghibli</h>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="header">
+                        <div class="pic"><img src="../pics/erweima.png" alt=""></div>
+                        <h3>For more information</h>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr style="width: 1200px;">
+        <div id="copy">
+            版权所有&copy;dayzKo1
+        </div>
+    </footer>
+    <!--------------底部-end---------------->
+
+
+    <script>
+        $(document).ready(function () {
+            page = window.location.search.split('=')[1] || '01';
+            axios.get('https://www.fastmock.site/mock/a17d9c875604a41e65a5354eb8b90462/test/news?page=' + page).then(function (res) {
+                for (let i = 0; i < res.data.data.news.length; i++) {
+                    $('#news').append(`
+                    <div class="col-md-6 col-lg-3" onClick="goToDetail(${res.data.data.news[i].id})">
+                    <div class="media d-flex align-items-center m-1 mb-3 bg-light p-2">
+                        <div class="media-left mr-2">
+                            <img src="${res.data.data.news[i].picture}" alt=""
+                                class="media-object rounded-circle img-fluid img-thumbnail" width="100">
+                        </div>
+                        <div class="media-body">
+                            <h6 class="media-heading">
+                                ${res.data.data.news[i].title} <br>
+                                <span class="text-danger">
+                                    【${res.data.data.news[i].date}】</span>
+                            </h6>
+                            <p class="text-muted">${res.data.data.news[i].introduction}</p>
+                        </div>
+                    </div>
+                </div>
+                    `);
+                }
+            })
+            changeColor(page);
+        })
+        $(".page").click(function () {
+
+            $("#news").empty();
+            var pages = this.value;
+            window.location.href = changeURLPar(window.location.href, 'page', pages);
+            url = 'https://www.fastmock.site/mock/a17d9c875604a41e65a5354eb8b90462/test/news?page=' + pages;
+            axios.get(url).then(function (res) {
+                for (let i = 0; i < res.data.data.news.length; i++) {
+                    $('#news').append(`
+                    <div class="col-md-6 col-lg-3" onClick="goToDetail(${res.data.data.news[i].id})">
+                    <div class="media d-flex align-items-center m-1 mb-3 bg-light p-2">
+                        <div class="media-left mr-2">
+                            <img src="${res.data.data.news[i].picture}" alt=""
+                                class="media-object rounded-circle img-fluid img-thumbnail" width="100">
+                        </div>
+                        <div class="media-body">
+                            <h6 class="media-heading">
+                                ${res.data.data.news[i].title} <br>
+                                <span class="text-danger">
+                                    【${res.data.data.news[i].date}】</span>
+                            </h6>
+                            <p class="text-muted">${res.data.data.news[i].introduction}</p>
+                        </div>
+                    </div>
+                </div>
+                    `);
+                }
+            })
+        })
+        function changeURLPar(destiny, par, par_value) {
+            var pattern = par + '=([^&]*)';
+            var replaceText = par + '=' + par_value;
+            if (destiny.match(pattern)) {
+                var tmp = '/\\' + par + '=[^&]*/';
+                tmp = destiny.replace(eval(tmp), replaceText);
+                return (tmp);
+            }
+            else {
+                if (destiny.match('[\?]')) {
+                    return destiny + '&' + replaceText;
+                }
+                else {
+                    return destiny + '?' + replaceText;
+                }
+            }
+            return destiny + '\n' + par + '\n' + par_value;
+        }
+        function changeColor(clicked) {
+            $("#page" + clicked).addClass('activee');
+        }
+        function goToDetail(id) {
+            if (id < 10) {
+                id = "0" + id;
+            }
+            window.location.href = "com_news-detail.html?id=" + id;
+        }
+    </script>
+</body>
+
+</html>

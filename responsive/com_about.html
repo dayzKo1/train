@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="lib/css/bootstrap.css">
+    <link rel="stylesheet" href="css/com_about.css">
+    <title>企业站</title>
+    <style type="text/css">
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .iw_poi_title {
+            color: #CC5522;
+            font-size: 14px;
+            font-weight: bold;
+            overflow: hidden;
+            padding-right: 13px;
+            white-space: nowrap
+        }
+
+        .iw_poi_content {
+            font: 12px arial, sans-serif;
+            overflow: visible;
+            padding-top: 4px;
+            white-space: -moz-pre-wrap;
+            word-wrap: break-word
+        }
+    </style>
+    <script src="https://api.map.baidu.com/api?v=2.0&ak=TXiCwv47kmQFBZkUNuCqA3HbEZFzcx6x"></script>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <script src="js/jquery-3.6.0.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="lib/js/bootstrap.js"></script>
+</head>
+
+<body>
+
+    <!--------------头部-begin-------------->
+    <header id="lhh_header">
+        <!--导航-->
+        <nav class="navbar navbar-expand-lg navbar-light navbar-lhh">
+            <div class="container">
+                <a class="navbar-brand d-flex justify-content-center align-items-center" href="#">
+                    <img src="/pics/longmao.png" alt="">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#lhh_nav"
+                    aria-controls="lhh_nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="lhh_nav">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item ">
+                            <a class="nav-link" href="com_index.html">首页</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="com_news.html">新闻</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="com_about.html">关于我们</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!--------------头部-end---------------->
+
+    <!--------------关于我们-begin-------------->
+    <section id="lhh_about">
+        <!--标题-->
+        <div class="text-center mt-3 mb-3">
+            <h2><strong>关于我们</strong></h2>
+        </div>
+        <hr>
+        <!--内容-->
+        <div class="container">
+            <div class="row">
+     <div class="col-lg-8 order-2 order-lg-1">
+        <p class="text-muted">
+            吉卜力工作室，是一家日本的动画工作室。作品以高品质著称，其细腻又富有生气，充满想象力的作品，在世界获得极高的评价。工作室成立于1985年中旬，原附属于德间书店，并由极富声望的导演宫崎骏以及他的同事高畑勋，铃木敏夫等一起统筹。自创立以来长期担任社长兼动画制作人的铃木敏夫确定将交棒给原为日本迪士尼社长的星野康二。
+            名称由来：“吉卜力”是由宫崎骏命名，意思是在撒哈拉沙漠上吹着的热风（ghibli）。吉卜力工作室从2003年开始发行的杂志名字也叫《热风》。
+            此外“ghibli”也是第二次世界大战时意大利的一种侦察机名字。另外“ghibli”的发音依照意大利原音发音应为“ギブリ（gi bu ri）”，但因宫崎骏本人当初的误解，念作“ジブリ（ji
+            bu
+            ri）”，此名因此显得独一无二，工作室本身也因而顺理成章，不打算对念法再作修正。 工作室的标志是使用他们的作品《龙猫》中的登场角色—“龙猫”（トトロ）来设计的。
+            吉卜力的附属工作室“卡吉诺工作室（スタジオカジノ）”是以公司所在的“小金井市梶野町”的发音来命名的。
+            <br>
+            公司类型：株式会社<br>
+            成立时间：1985年6月 　　<br>
+            总部地点：东京都小金井市梶野町1丁目4番25号<br>
+            重要人物：星野康二（代表取缔役社长） 　　<br>
+            铃木敏夫（代表取缔役） 　　<br>
+            宫崎骏（取缔役） 　　<br>
+            史提芬·艾伯特（取缔役）<br>
+            山本哲也（取缔役）<br>
+            产业：动画工作室 　　<br>
+            产品：动画电影、电视广告、电视电影、写实电影等的企划、制作 　<br>
+            员工数：约130人
+        </p>
+     </div>
+<div class="col-lg-4 order-1 order-lg-2">
+    <div id="map" style="">
+
+        <div style="width:500px;height:500px;border:#ccc solid 1px;" id="dituContent"></div>
+
+    </div>
+
+</div>
+            </div>
+        </div>
+    </section>
+    <!--------------关于我们-end---------------->
+
+    <!--------------底部-begin-------------->
+    <footer id="lhh_footer">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-lg-3">
+                    <div class="header">
+                        <div class="pic"><img src="../pics/location.png" alt=""></div>
+                        <h3>Studio Ghibli 1-4-25, <br>
+                            Kajino-cho Koganei-shi, <br>
+                            184 Japan</h>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="header">
+                        <div class="pic"><img src="../pics/twiter.png" alt=""></div>
+                        <h3>Twitter:JP_GHIBLI</h>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="header">
+                        <div class="pic"><img src="../pics/line.png" alt=""></div>
+                        <h3>Line:studioghibli</h>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="header">
+                        <div class="pic"><img src="../pics/erweima.png" alt=""></div>
+                        <h3>For more information</h>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr style="width: 1200px;color: white;">
+        <div id="copy">
+            版权所有&copy;dayzKo1
+        </div>
+    </footer>
+    <!--------------底部-end---------------->
+
+
+
+    <script type="text/javascript">
+        //创建和初始化地图函数：
+        function initMap() {
+            createMap();//创建地图
+            setMapEvent();//设置地图事件
+            addMapControl();//向地图添加控件
+            addMarker();//向地图中添加marker
+        }
+
+        //创建地图函数：
+        function createMap() {
+            var map = new BMap.Map("dituContent");//在百度地图容器中创建一个地图
+            var point = new BMap.Point(139.569727, 35.696326);//定义一个中心点坐标
+            map.centerAndZoom(point, 18);//设定地图的中心点和坐标并将地图显示在地图容器中
+            window.map = map;//将map变量存储在全局
+        }
+
+        //地图事件设置函数：
+        function setMapEvent() {
+            map.enableDragging();//启用地图拖拽事件，默认启用(可不写)
+            map.enableScrollWheelZoom();//启用地图滚轮放大缩小
+            map.enableDoubleClickZoom();//启用鼠标双击放大，默认启用(可不写)
+            map.enableKeyboard();//启用键盘上下左右键移动地图
+        }
+
+        //地图控件添加函数：
+        function addMapControl() {
+            //向地图中添加缩放控件
+            var ctrl_nav = new BMap.NavigationControl({ anchor: BMAP_ANCHOR_TOP_LEFT, type: BMAP_NAVIGATION_CONTROL_LARGE });
+            map.addControl(ctrl_nav);
+            //向地图中添加缩略图控件
+            var ctrl_ove = new BMap.OverviewMapControl({ anchor: BMAP_ANCHOR_BOTTOM_RIGHT, isOpen: 1 });
+            map.addControl(ctrl_ove);
+            //向地图中添加比例尺控件
+            var ctrl_sca = new BMap.ScaleControl({ anchor: BMAP_ANCHOR_BOTTOM_LEFT });
+            map.addControl(ctrl_sca);
+        }
+
+        //标注点数组
+        var markerArr = [{ title: "我的标记", content: "我的备注", point: "139.568272|35.696582", isOpen: 0, icon: { w: 23, h: 25, l: 0, t: 21, x: 9, lb: 12 } }
+            , { title: "我的标记", content: "我的备注", point: "139.570468|35.696267", isOpen: 0, icon: { w: 23, h: 25, l: 0, t: 21, x: 9, lb: 12 } }
+        ];
+        //创建marker
+        function addMarker() {
+            for (var i = 0; i < markerArr.length; i++) {
+                var json = markerArr[i];
+                var p0 = json.point.split("|")[0];
+                var p1 = json.point.split("|")[1];
+                var point = new BMap.Point(p0, p1);
+                var iconImg = createIcon(json.icon);
+                var marker = new BMap.Marker(point, { icon: iconImg });
+                var iw = createInfoWindow(i);
+                var label = new BMap.Label(json.title, { "offset": new BMap.Size(json.icon.lb - json.icon.x + 10, -20) });
+                marker.setLabel(label);
+                map.addOverlay(marker);
+                label.setStyle({
+                    borderColor: "#808080",
+                    color: "#333",
+                    cursor: "pointer"
+                });
+
+                (function () {
+                    var index = i;
+                    var _iw = createInfoWindow(i);
+                    var _marker = marker;
+                    _marker.addEventListener("click", function () {
+                        this.openInfoWindow(_iw);
+                    });
+                    _iw.addEventListener("open", function () {
+                        _marker.getLabel().hide();
+                    })
+                    _iw.addEventListener("close", function () {
+                        _marker.getLabel().show();
+                    })
+                    label.addEventListener("click", function () {
+                        _marker.openInfoWindow(_iw);
+                    })
+                    if (!!json.isOpen) {
+                        label.hide();
+                        _marker.openInfoWindow(_iw);
+                    }
+                })()
+            }
+        }
+        //创建InfoWindow
+        function createInfoWindow(i) {
+            var json = markerArr[i];
+            var iw = new BMap.InfoWindow("<b class='iw_poi_title' title='" + json.title + "'>" + json.title + "</b><div class='iw_poi_content'>" + json.content + "</div>");
+            return iw;
+        }
+        //创建一个Icon
+        function createIcon(json) {
+            var icon = new BMap.Icon("http://app.baidu.com/map/images/us_mk_icon.png", new BMap.Size(json.w, json.h), { imageOffset: new BMap.Size(-json.l, -json.t), infoWindowOffset: new BMap.Size(json.lb + 5, 1), offset: new BMap.Size(json.x, json.h) })
+            return icon;
+        }
+
+        initMap();//创建和初始化地图
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,132 @@
+/**************通用样式-begin***********/
+body{
+    color: #000;
+    font-family: Arial, Helvetica, sans-serif;
+}
+a:hover{
+    text-decoration: none;
+}
+ul.ol{
+    list-style: none;
+}
+hr{
+    width: 250px;
+}
+
+/**************通用样式-end*************/
+
+
+/**************头部-begin***********/
+#lhh_header .top-bar{
+    height: 40px;
+    line-height: 39px;
+    border-bottom: 1px solid #e0e0e0;
+}
+#lhh_header .top-bar .container .row>div+div{
+    border-left: 1px solid #e0e0e0;
+}
+/*导航*/
+#lhh_header .navbar-lhh{
+    border-bottom: 1px solid #e0e0e0;
+}
+#lhh_header .navbar-lhh .navbar-brand img{
+    height: 100px;
+    margin-right: 100px;
+}
+#lhh_header .navbar-lhh .navbar-nav>li>a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 100px;
+    font-size: 30px;
+}
+#lhh_header .navbar-lhh .navbar-nav>li>a:hover{
+    border-bottom: 2px solid purple;
+}
+
+/**************头部-end*************/
+
+/**************轮播图-begin***********/
+#lhh_carousel .carousel-item img{
+    height: 100%;
+    width: 100%;
+}
+/**************轮播图-end*************/
+
+
+
+/**************主要作品-begin***********/
+#lhh_mainwork .media:hover{
+    opacity: 0.6;
+}
+/**************主要作品-end*************/
+
+
+
+/**************工作室介绍-begin***********/
+#lhh_intro{
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+#lhh_intro .nav-item{
+    font-size: 18px;
+}
+#lhh_intro .nav-item a{
+   color: black;
+   border: none;
+   padding: 10px 30px;
+}
+#lhh_intro .nav-item a:hover{
+    border-bottom: 2px solid purple;
+}
+#lhh_intro .tab-content{
+    padding-top: 20px;
+    font-size: 22px;
+}
+/**************工作室介绍-end*************/
+
+
+
+/**************新闻动态-begin***********/
+#lhh_news{
+    margin-bottom: 20px;
+}
+#lhh_news img{
+    height: 150px;
+}
+#lhh_news .media:hover{
+    opacity: 0.6;
+}
+/**************新闻动态-end*************/
+
+
+
+/**************底部-begin***********/
+#lhh_footer{
+    background-color: #343a40;
+}
+.header{
+    text-align: center;
+    border:0px;
+    padding: 40px;
+}
+.header h3{
+    padding: 15px;
+    text-align: center;
+    color: cornsilk;
+    font-size: 13px;
+}
+.header img{
+    width: 80px;
+}
+#copy{
+    text-align: center;
+    color: white;
+    font-size: 22px;
+}
+
+/**************底部-end*************/
+
+
+

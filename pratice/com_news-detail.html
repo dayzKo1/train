@@ -24,14 +24,14 @@
             </span>
         </div>
     </div>
-    
+
     <div id="part2">
         <div class="mybody">
             <div id="titleAndTime">
 
                 <!-- <h1>千与千寻</h1>
                 <h5>20210617</h5> -->
-    
+
             </div>
             <div id="news-detail" class="body">
 
@@ -81,27 +81,24 @@
     </div>
 
     <script>
-
         var id = window.location.search.split('=')[1];
-        url ='https://www.fastmock.site/mock/a17d9c875604a41e65a5354eb8b90462/test/news?id='+id;
+        url = 'https://www.fastmock.site/mock/a17d9c875604a41e65a5354eb8b90462/test/news?id=' + id;
         $(document).ready(function () {
             axios.get(url).then(function (res) {
                 $('#news-detail').append(`
+
                    <img src="${res.data.data.news.picture}" alt=""></div>
                    <div>
                     <p>${res.data.data.news.content}</p>
                     </div>
+                    
                     `);
-
                 $('#titleAndTime').append(`
                     <h1>${res.data.data.news.title}</h1>
                     <h5>${res.data.data.news.date}</h5>
                     `);
+            })
         })
-        })
-
-
-
     </script>
 
 </body>
