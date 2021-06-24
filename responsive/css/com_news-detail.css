@@ -46,9 +46,10 @@ hr{
 
 /**************头部-end*************/
 
-#news-detail img{
+#lhh_news-detail img{
     width: 100%;
     height: 100%;
+    margin-bottom: 30px;
 }
 /**************底部-begin***********/
 #lhh_footer{
