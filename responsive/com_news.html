@@ -12,6 +12,29 @@
     <script src="js/popper.js"></script>
     <script src="lib/js/bootstrap.js"></script>
     <link rel="stylesheet" href="css/com_news.css">
+    <style>
+        .scroll-con {
+
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        .scroll-con-img {
+            
+            opacity: 0;
+            transform: translateX(50%);
+            transition: all 1s;
+        }
+
+        .fade {
+            transform: translateX(0);
+            opacity: 1;
+            transition: all 1s;
+        }
+        .fade:not(.show) {
+            opacity: 1;
+        }
+    </style>
 </head>
 <body>
 
@@ -21,7 +44,7 @@
         <nav class="navbar navbar-expand-lg navbar-light navbar-lhh">
             <div class="container">
                 <a class="navbar-brand d-flex justify-content-center align-items-center" href="#">
-                    <img src="images/longmao.png" alt="">
+                    <img class="scroll-con-img" data-src="images/longmao.png" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#lhh_nav"
                     aria-controls="lhh_nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -73,35 +96,37 @@
     <!--------------新闻动态-end---------------->
 
 
-    <!--------------底部-begin-------------->
-    <footer id="lhh_footer">
+      <!--------------底部-begin-------------->
+      <footer id="lhh_footer">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-lg-3">
                     <div class="header">
-                        <div class="pic"><img src="../pics/location.png" alt=""></div>
+
+                        <img class="scroll-con-img" data-src="../pics/location.png" alt="">
                         <h3>Studio Ghibli 1-4-25, <br>
                             Kajino-cho Koganei-shi, <br>
-                            184 Japan</h>
+                            184 Japan</h3>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3">
                     <div class="header">
-                        <div class="pic"><img src="../pics/twiter.png" alt=""></div>
-                        <h3>Twitter:JP_GHIBLI</h>
+                        <img class="scroll-con-img" data-src="../pics/twiter.png" alt="">
+                        <h3>Twitter:JP_GHIBLI</h3>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3">
                     <div class="header">
-                        <div class="pic"><img src="../pics/line.png" alt=""></div>
-                        <h3>Line:studioghibli</h>
+                        <img class="scroll-con-img" data-src="../pics/line.png" alt="">
+                        <h3>Line:studioghibli</h3>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3">
                     <div class="header">
-                        <div class="pic"><img src="../pics/erweima.png" alt=""></div>
-                        <h3>For more information</h>
+                        <img class="scroll-con-img" data-src="../pics/erweima.png" alt="123">
+                        <h3>For more information</h3>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -196,6 +221,30 @@
             }
             window.location.href = "com_news-detail.html?id=" + id;
         }
+    </script>
+    <!--懒加载-->
+    <script>
+        const con = document.querySelector('.scroll-con')
+        const imgs = document.querySelectorAll('.scroll-con-img')
+        function lazyLoad(target) {
+            const io = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target
+                        const src = img.getAttribute('data-src')
+                        img.setAttribute('src', src)
+                        img.classList.add('fade')
+                        observer.disconnect()
+                    }
+                })
+            }, {
+                root: con,
+                threshold: 1,
+                rootMargin: '0px'
+            })
+            io.observe(target)
+        }
+        imgs.forEach(lazyLoad)
     </script>
 </body>
 
