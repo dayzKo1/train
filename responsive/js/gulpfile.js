@@ -2,7 +2,7 @@ var gulp = require('gulp')
 var responsive = require('gulp-responsive')
 gulp.task('default', function () {
     return gulp
-        .src('images/*.{png,jpg}')
+        .src('../images/*.{png,jpg}')
         .pipe(
             responsive({
                 '*': [
@@ -22,9 +22,32 @@ gulp.task('default', function () {
                     },
                     {
                         width: 360,
-                        quality: 50,
                         rename: {
                             suffix: -360
+                        },
+                    },
+                    {
+                        width: 540,
+                        rename: {
+                            suffix: -540
+                        },
+                    },
+                    {
+                        width: 720,
+                        rename: {
+                            suffix: -720
+                        },
+                    },
+                    {
+                        width: 900,
+                        rename: {
+                            suffix: -900
+                        },
+                    },
+                    {
+                        width: 1080,
+                        rename: {
+                            suffix: -1080
                         },
                     },
                     {
@@ -39,5 +62,5 @@ gulp.task('default', function () {
                 withoutEnlargement: true
             })
         )
-        .pipe(gulp.dest('dist/images'))
+        .pipe(gulp.dest('../dist/images'))
 })

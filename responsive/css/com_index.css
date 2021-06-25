@@ -50,6 +50,7 @@ hr{
 #lhh_carousel .carousel-item img{
     height: 100%;
     width: 100%;
+    min-width:520px;
 }
 /**************轮播图-end*************/
 
