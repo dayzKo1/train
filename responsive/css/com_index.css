@@ -47,13 +47,16 @@ hr{
 /**************头部-end*************/
 
 /**************轮播图-begin***********/
-#lhh_carousel .carousel-inner{
-    height: 700px;
-}
+
+/* #lhh_carousel .carousel-inner{
+    height: 550px;
+} */
+
 #lhh_carousel .carousel-item img{
     width: 100%;
     min-width:520px;
 }
+
 /**************轮播图-end*************/
 
 
