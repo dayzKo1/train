@@ -39,6 +39,15 @@ hr{
     margin-right: 100px;
     font-size: 30px;
 }
+@media (max-width:576px){
+    #lhh_header .navbar-lhh .navbar-brand img{
+        height: 50px;
+        margin-right: 50px;
+    }
+    #lhh_header .navbar-lhh .navbar-nav>li>a{
+        margin-right: 1px;
+    }
+}
 #lhh_header .navbar-lhh .navbar-nav>li>a:hover{
     border-bottom: 2px solid purple;
 }
