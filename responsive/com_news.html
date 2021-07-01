@@ -45,7 +45,7 @@
         <!--导航-->
         <nav class="navbar navbar-expand-lg navbar-light navbar-lhh">
             <div class="container">
-                <a class="navbar-brand d-flex justify-content-center align-items-center" href="#">
+                <a class="navbar-brand d-flex justify-content-center align-items-center" href="com_index.html">
                     <img class="scroll-con-img" data-src="images/longmao.png" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#lhh_nav"
@@ -152,12 +152,11 @@
     <script>
         $(document).ready(function () {
             page = window.location.search.split('=')[1] || '01';
-
             $("#loading").append(`
-<div style="height:600px;">
-<div class="spinner-border" role="status">
-</div>
-</div>
+            <div style="height:600px;">
+            <div class="spinner-border" role="status">
+            </div>
+            </div>
             `)
             axios.get('https://www.fastmock.site/mock/a17d9c875604a41e65a5354eb8b90462/test/news?page=' + page).then(function (res) {
                 for (let i = 0; i < res.data.data.news.length; i++) {
@@ -182,7 +181,7 @@
                 }
                 $("#loading").empty();
             })
-       
+
             changeColor(page);
         })
         $(".page").click(function () {

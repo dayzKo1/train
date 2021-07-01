@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="lib/css/bootstrap.css">
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <!-- <form action="./com_index.html">
+        <label for="user">账号</label>
+        <input type="text" name="user" id="user">
+        <label for="pw">密码</label>
+        <input type="text" name="pw" id="pw">
+        <button type="submit">提交</button>
+    </form> -->
+
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Launch demo modal
+    </button>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp" placeholder="Enter email">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Email content</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1"
+                                placeholder="Password">
+                        </div>
+
+                    </form>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary"id="submit">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--表单提交-->
+    <script>
+        //    var myModal = new bootstrap.Madal(document.getElementById('exampleModal'))
+        $("#submit").click(function () {
+            let email_address = $(exampleInputEmail1).val();
+            let email_content = $(exampleInputPassword1).val();
+            console.log(email_address)
+            console.log(email_content)
+            axios({
+                url: 'https://iutfexqq.lc-cn-n1-shared.com/1.1/classes/email',
+                method: 'post',
+                headers: {
+                    'X-LC-Id': 'iUtFeXQqv5hI70Hxyg3SMCFm-gzGzoHsz',
+                    'X-LC-Key': "Su4eInu9xNAbSyREQj3crQ5y"
+                },
+                data: {
+                    email_address: email_address,
+                    email_content: email_content
+                }
+            })
+            $("#exampleModal").hide();
+            alert('已收到您的信息！')
+        })
+    </script>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script> -->
+    <script src="js/jquery-3.6.0.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="lib/js/bootstrap.js"></script>
+
+</body>
+
+</html>
