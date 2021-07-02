@@ -33,6 +33,10 @@ hr{
     height: 100px;
     margin-right: 100px;
 }
+#lhh_header .navbar-lhh .navbar-brand img:hover{
+    animation:rotate-scale-up .65s linear both
+}
+@keyframes rotate-scale-up{0%{transform:scale(1) rotateZ(0)}50%{transform:scale(2) rotateZ(180deg)}100%{transform:scale(1) rotateZ(360deg)}}
 #lhh_header .navbar-lhh .navbar-nav>li>a{
     display: flex;
     justify-content: center;
@@ -53,8 +57,6 @@ hr{
     border-bottom: 2px solid purple;
 }
 
-
-
 /**************头部-end*************/
 
 /**************轮播图-begin***********/
@@ -71,13 +73,15 @@ hr{
 /**************轮播图-end*************/
 
 
-
 /**************主要作品-begin***********/
 #lhh_mainwork .media:hover{
-    opacity: 0.6;
+    animation:shadow-drop-center .4s cubic-bezier(.25,.46,.45,.94) both
 }
-/**************主要作品-end*************/
+@keyframes shadow-drop-center{
+    0%{box-shadow:0 0 0 0 transparent}100%{box-shadow:0 0 20px 0 rgba(0,0,0,.35)}}
+}
 
+/**************主要作品-end*************/
 
 
 /**************工作室介绍-begin***********/
@@ -106,6 +110,8 @@ hr{
     padding-top: 20px;
     font-size: 22px;
 }
+animation:shadow-drop-center .4s cubic-bezier(.25,.46,.45,.94) both
+}
 /**************工作室介绍-end*************/
 
 
@@ -118,7 +124,7 @@ hr{
     height: 150px;
 }
 #lhh_news .media:hover{
-    opacity: 0.6;
+    animation:shadow-drop-center .4s cubic-bezier(.25,.46,.45,.94) both
 }
 /**************新闻动态-end*************/
 
@@ -141,6 +147,9 @@ hr{
 }
 .header img{
     width: 80px;
+}
+.header img:hover{
+    animation:rotate-scale-up .65s linear both
 }
 #copy{
     text-align: center;
