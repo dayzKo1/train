@@ -75,10 +75,12 @@ hr{
 
 /**************主要作品-begin***********/
 #lhh_mainwork .media:hover{
-    animation:shadow-drop-center .4s cubic-bezier(.25,.46,.45,.94) both
+    animation:shadow-drop-center .4s cubic-bezier(.25,.46,.45,.94) both;
+    transform: scale(1.1)
 }
 @keyframes shadow-drop-center{
     0%{box-shadow:0 0 0 0 transparent}100%{box-shadow:0 0 20px 0 rgba(0,0,0,.35)}}
+
 }
 
 /**************主要作品-end*************/
@@ -110,7 +112,13 @@ hr{
     padding-top: 20px;
     font-size: 22px;
 }
-animation:shadow-drop-center .4s cubic-bezier(.25,.46,.45,.94) both
+#lhh_intro .tab-content img:hover{
+    animation:shadow-drop-center .4s cubic-bezier(.25,.46,.45,.94) both;
+    transform: scale(1.1)
+}
+#lhh_intro .tab-content p:hover{
+    animation:shadow-drop-center .4s cubic-bezier(.25,.46,.45,.94) both;
+    transform: scale(1.05)
 }
 /**************工作室介绍-end*************/
 
@@ -124,7 +132,8 @@ animation:shadow-drop-center .4s cubic-bezier(.25,.46,.45,.94) both
     height: 150px;
 }
 #lhh_news .media:hover{
-    animation:shadow-drop-center .4s cubic-bezier(.25,.46,.45,.94) both
+    animation:shadow-drop-center .4s cubic-bezier(.25,.46,.45,.94) both;
+    transform: scale(1.1)
 }
 /**************新闻动态-end*************/
 
